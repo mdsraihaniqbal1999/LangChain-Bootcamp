@@ -92,8 +92,13 @@ human_message = HumanMessage(
 
 # Combine messages and send to LLM
 messages = [system_message, human_message]
+print("\n=== Example 1: System + Human Messages ===")
+print("Messages sent to the model:")
+for i, msg in enumerate(messages, start=1):
+    print(f"Message {i}: {msg}")
 response = llm.invoke(messages)
-print("Response:", response)
+print("\nModel response:")
+print(response)
 
 
 # Example 2: Maintaining Context with Conversation History
@@ -109,9 +114,12 @@ human_msg_1 = HumanMessage(content="My name is Alice and I work as a software en
 
 conversation_history.append(system_msg)
 conversation_history.append(human_msg_1)
+print("Messages in conversation history:")
+for i, msg in enumerate(conversation_history, start=1):
+    print(f"History message {i}: {msg}")
 
 response_1 = llm.invoke(conversation_history)
-print("User:", human_msg_1.content)
+print("\nUser:", human_msg_1.content)
 print("AI:", response_1)
 
 # Add AI response to history
