@@ -8,3 +8,4 @@ llm = OllamaLLM(
 
 text = "What would be a good company that makes toys for kids?"
 print(llm.invoke(text))
+
